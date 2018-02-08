@@ -42,17 +42,20 @@ var down = true;
 var screensaver = function(e){
     id = requestAnimationFrame(screensaver);
     console.log(id);
+    //box reached left or right side of the screen
     if(x == 0 || x == 500){
 	left = !left;
     }
+    //box reached top or bottom of the screen
     if(y == 0 || y == 530){
 	down = !down;
     }
+    //direction the box is moving in
     if(left){x++;}
     else{x--;}
     if(down){y++;}
     else{y--;}
-    
+    //draw the box !
     ctx.clearRect(0,0,600,600);
     ctx.fillStyle="#ff9999";
     ctx.beginPath();
