@@ -34,6 +34,33 @@ var anim8 = function(e){
     //console.log(requestAnimationFrame(anim8));
 }
 
+var x = 200;
+var y = 200;
+var left = true;
+var down = true;
+
+var screensaver = function(e){
+    id = requestAnimationFrame(screensaver);
+    console.log(id);
+    if(x == 0 || x == 500){
+	left = !left;
+    }
+    if(y == 0 || y == 530){
+	down = !down;
+    }
+    if(left){x++;}
+    else{x--;}
+    if(down){y++;}
+    else{y--;}
+    
+    ctx.clearRect(0,0,600,600);
+    ctx.fillStyle="#ff9999";
+    ctx.beginPath();
+    ctx.fillRect(x,y,100,70);
+    ctx.fill();
+    ctx.closePath();
+}
+
 //stop animating
 var stop = function(e){
     cancelAnimationFrame(id);
@@ -46,3 +73,6 @@ c.addEventListener('click', stop);
 
 var anim = document.getElementById("start");
 anim.addEventListener('click', anim8);
+
+var screen = document.getElementById("scrn");
+screen.addEventListener('click', screensaver);
