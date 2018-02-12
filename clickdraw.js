@@ -5,6 +5,12 @@ var ctx = c.getContext("2d");
 var bigger = true;
 var size = 50;
 var id = 8;
+var canAnim = true;
+
+var logo = new Image();
+logo.src = "../DVD_Logo.jpg";
+logo.height = 70;
+
 
 var anim8 = function(e){
     id = requestAnimationFrame(anim8);
@@ -59,8 +65,9 @@ var screensaver = function(e){
     ctx.clearRect(0,0,600,600);
     ctx.fillStyle="#ff9999";
     ctx.beginPath();
-    ctx.fillRect(x,y,100,70);
-    ctx.fill();
+    ctx.drawImage(logo,x,y)
+    //ctx.fillRect(x,y,100,70);
+    //ctx.fill();
     ctx.closePath();
 }
 
